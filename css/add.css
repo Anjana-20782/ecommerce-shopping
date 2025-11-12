@@ -5,6 +5,94 @@ body {
   padding: 0;
 }
 
+
+.nav {
+  height: 12vh;
+  background-color: #2874f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logo h1{
+
+    font-style: oblique;
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+}
+
+/* 🔍 Search Bar */
+.search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.search input {
+  width: 350px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search button {
+  background: white;
+  border: none;
+  color: #2874f0;
+  font-size: 18px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* 📂 Menu Section */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* 👤 Login Button */
+.login-btn {
+  background-color: white;
+  color: #2874f0;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* 🛒 Cart */
+.cart {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
 .product-page {
   display: flex;
   max-width: 1200px;
