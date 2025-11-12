@@ -47,6 +47,7 @@ async function displayProduct(id) {
       </div>
     `).join("");
 
+    document.title=`${data.title}`
     // 📦 Main content
     document.getElementById("product").innerHTML = `
       <div class="product-page">
