@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+
+.nav{
+
+    height: 15vh;
+    background-color: red;
+}
