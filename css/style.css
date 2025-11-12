@@ -129,8 +129,8 @@ body {
   font-weight: bold;
 }
 
-.price {
-  color: green;
+.card .price {
+  color: rgb(96, 142, 165);
 }
 
 .card a {
