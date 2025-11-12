@@ -1,11 +1,11 @@
-/* 🌎 Global reset */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f1f3f6;
 }
 
-/* 🛍️ Navbar */
+
 .nav {
   height: 12vh;
   background-color: #2874f0;
@@ -17,13 +17,14 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* 🧩 Logo */
-.logo img {
-  width: 100px;
-  cursor: pointer;
+.logo h1{
+
+    font-style: oblique;
+    font-family: Arial, sans-serif;
+    font-size: 27px;
 }
 
-/* 🔍 Search Bar */
+
 .search {
   display: flex;
   align-items: center;
@@ -67,7 +68,7 @@ body {
   text-decoration: underline;
 }
 
-/* 👤 Login Button */
+
 .login-btn {
   background-color: white;
   color: #2874f0;

@@ -114,4 +114,23 @@ async function displayProduct(id) {
   } catch (error) {
     console.error("Error fetching product:", error);
   }
+
+  // 🧾 Generate QR Code for this product page
+const qrContainer = document.createElement("div");
+qrContainer.classList.add("qr-section");
+qrContainer.innerHTML = `
+  <h3>Scan to View Product</h3>
+  <canvas id="qrCode"></canvas>
+`;
+document.querySelector(".right-section").appendChild(qrContainer);
+
+// Generate QR code using a library-free API
+const qrCanvas = document.getElementById("qrCode");
+const qrCtx = qrCanvas.getContext("2d");
+const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(window.location.href)}`;
+const qrImg = new Image();
+qrImg.crossOrigin = "anonymous";
+qrImg.onload = () => qrCtx.drawImage(qrImg, 0, 0, 150, 150);
+qrImg.src = qrUrl;
+
 }
