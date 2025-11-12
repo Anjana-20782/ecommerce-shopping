@@ -1,0 +1,215 @@
+/* 🌎 Global reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f1f3f6;
+}
+
+/* 🛍️ Navbar */
+.nav {
+  height: 12vh;
+  background-color: #2874f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 🧩 Logo */
+.logo img {
+  width: 100px;
+  cursor: pointer;
+}
+
+/* 🔍 Search Bar */
+.search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.search input {
+  width: 350px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search button {
+  background: white;
+  border: none;
+  color: #2874f0;
+  font-size: 18px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* 📂 Menu Section */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* 👤 Login Button */
+.login-btn {
+  background-color: white;
+  color: #2874f0;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* 🛒 Cart */
+.cart {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 🧱 Cards Section */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 200px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.card h3 {
+  color: #212121;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card p {
+  color: #555;
+  font-weight: bold;
+}
+
+.price {
+  color: green;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+/* ⭐ Star icon */
+.img {
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+/* 📱 Responsive Styles */
+@media (max-width: 1024px) {
+  .nav {
+    padding: 0 30px;
+  }
+  .search input {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .search input {
+    width: 200px;
+  }
+
+  .menu {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin: 20px;
+    gap: 15px;
+  }
+
+  .card img {
+    width: 150px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search input {
+    width: 140px;
+    font-size: 12px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .login-btn {
+    padding: 6px 12px;
+  }
+
+  .card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card h3 {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 13px;
+  }
+}
