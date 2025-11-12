@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipkart Style Page</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
-    <div class="main">
-        <div class="nav"></div>
-        <div id="cards"></div>
+
+  <div class="main">
+    <!-- Navbar -->
+    <div class="nav">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Fk_logo.png" alt="Flipkart Logo">
+      </div>
+
+      <div class="search">
+        <input type="text" placeholder="Search for products, brands and more">
+        <button>🔍</button>
+      </div>
+
+      <div class="menu">
+        <button class="login-btn">Login</button>
+        <a href="#">Become a Seller</a>
+        <a href="#">More ⬇️</a>
+        <a href="#" class="cart">🛒 Cart</a>
+      </div>
     </div>
 
-    
-    <script src="../js/index.js"></script>
+    <div id="cards" class="cards"></div>
+  </div>
+
+  <script src="../js/index.js"></script>
 </body>
 </html>
