@@ -4,6 +4,7 @@ body {
   background: #f1f3f6;
   margin: 0;
   padding: 0;
+  color: #212121;
 }
 
 /* 🟦 Navbar */
@@ -408,9 +409,12 @@ body {
   max-width: 320px;
   height: auto;
   margin: 0 auto;
+  display: block;
 }
 
-/* 🔧 Media Queries */
+/* 🔧 Responsive Design */
+
+/* 🖥️ Medium screens (≤1200px) */
 @media (max-width: 1200px) {
   .nav {
     padding: 0 20px;
@@ -424,39 +428,54 @@ body {
     padding: 20px;
   }
 }
+
+/* 💻 Tablets (≤900px) */
 @media (max-width: 900px) {
-  
-  .left-section {
-    flex-direction: column; /* main image top */
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    height: auto;
+    padding: 15px;
   }
 
-  .main-image {
-    width: 100%;
+  .menu {
+    gap: 15px;
+  }
+
+  .left-section {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
   }
 
   .thumbs {
-    flex-direction: row; /* horizontal thumbnails */
+    flex-direction: row;
     gap: 10px;
     overflow-x: auto;
     padding-bottom: 5px;
   }
 
-  .thumbs img {
-    flex-shrink: 0; /* prevents shrinking */
-    width: 60px;
-    height: 60px;
+  .product-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-section {
+    text-align: center;
   }
 }
 
+/* 📱 Mobile (≤600px) */
 @media (max-width: 600px) {
   .nav {
     flex-direction: column;
-    height: auto;
+    align-items: center;
     padding: 10px;
   }
 
-  .menu {
-    gap: 15px;
+  .logo h1 {
+    font-size: 22px;
   }
 
   .search input {
@@ -465,18 +484,55 @@ body {
 
   .buttons {
     flex-direction: column;
-    gap: 10px;
+    width: 100%;
+  }
+
+  .cart-btn, .buy-btn {
+    width: 100%;
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .price {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
-  .reviews h3 {
-    font-size: 18px;
+  .reviews {
+    padding: 15px;
+  }
+
+  #qrCode {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
+
+/* 📲 Extra Small (≤400px) */
+@media (max-width: 400px) {
+  .nav {
+    text-align: center;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .main-image img {
+    max-width: 260px;
+  }
+
+  .thumbs img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
   }
 }

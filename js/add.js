@@ -56,7 +56,7 @@ async function displayProduct(id) {
           <div class="main-image">
             <img id="mainImg" src="${data.images[0]}" alt="${data.title}">
             <div class="buttons">
-              <button class="cart-btn">ADD TO CART</button>
+              <button id="cartBtn" class="cart-btn">ADD TO CART</button>
               <button class="buy-btn">BUY NOW</button>
             </div>
           </div>
@@ -110,6 +110,39 @@ async function displayProduct(id) {
         btn.classList.toggle("active");
       });
     });
+
+    // 🛒 Add to Cart functionality
+const cartBtn = document.getElementById("cartBtn");
+
+// Check if item already in cart
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const alreadyInCart = cart.some(item => item.id === data.id);
+
+if (alreadyInCart) {
+  cartBtn.textContent = "VIEW CART";
+  cartBtn.classList.add("view-cart");
+} else {
+  cartBtn.textContent = "ADD TO CART";
+}
+
+// When clicked
+cartBtn.addEventListener("click", () => {
+  if (cartBtn.textContent === "ADD TO CART") {
+    cart.push({
+      id: data.id,
+      title: data.title,
+      price: data.price,
+      image: data.images[0],
+      quantity: 1
+    });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    cartBtn.textContent = "VIEW CART";
+    cartBtn.classList.add("view-cart");
+  } else {
+    window.location.href = "cart.html"; // 👉 Redirect to cart page
+  }
+});
+
 
   } catch (error) {
     console.error("Error fetching product:", error);
