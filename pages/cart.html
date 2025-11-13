@@ -8,11 +8,20 @@
 </head>
 <body>
     
-     <div class="cart-container">
-    <h2>Your Shopping Cart 🛒</h2>
-    <div id="cartItems"></div>
-    <div class="total" id="totalPrice"></div>
-  </div>
+    <main class="cart-wrapper">
+    <!-- 🛍️ Left: Cart Items -->
+    <section class="cart-section">
+      <h2>My Cart 🛒</h2>
+      <div id="cartItems"></div>
+    </section>
+
+    <!-- 💰 Right: Price Summary -->
+    <aside class="summary-section">
+      <h3>PRICE DETAILS</h3>
+      <div id="priceDetails"></div>
+      <button id="checkoutBtn">Place Order</button>
+    </aside>
+  </main>
     <script src="../js/cart.js"></script>
 </body>
 </html>
