@@ -16,15 +16,19 @@ function renderCart() {
       <img src="${item.image}" alt="${item.title}">
       <div class="cart-info">
         <h4>${item.title}</h4>
-        <p>₹${(item.price * 83).toLocaleString()}</p>
+        <p class="item-price">₹${(item.price * 83).toLocaleString()}</p>
+        <p class="discount">Discount: <span>${item.discountPercentage || 0}%</span></p>
+        <p class="ship">Shipping: <span>${item.ship || "Free Delivery 🚚"}</span></p>
+
         <div class="quantity-controls">
           <button onclick="decreaseQty(${item.id})">−</button>
           <span>${item.qty}</span>
           <button onclick="increaseQty(${item.id})">+</button>
         </div>
       </div>
+
       <div class="cart-actions">
-        <button onclick="removeFromCart(${item.id})">Remove</button>
+        <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
       </div>
     </div>
   `).join("");
@@ -54,6 +58,7 @@ function updateSummary() {
   const finalTotal = total - discount + delivery;
 
   priceDetails.innerHTML = `
+    <h3>PRICE DETAILS</h3>
     <div class="price-row"><span>Price (${cart.length} items)</span><span>₹${total.toLocaleString()}</span></div>
     <div class="price-row"><span>Discount</span><span style="color:green;">− ₹${discount.toFixed(0)}</span></div>
     <div class="price-row"><span>Delivery Charges</span><span>${delivery === 0 ? "<span style='color:green'>FREE</span>" : "₹" + delivery}</span></div>
@@ -65,7 +70,5 @@ function saveAndRender() {
   localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
 }
-
-
 
 renderCart();

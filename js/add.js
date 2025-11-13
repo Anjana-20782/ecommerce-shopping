@@ -129,12 +129,15 @@ if (alreadyInCart) {
 cartBtn.addEventListener("click", () => {
   if (cartBtn.textContent === "ADD TO CART") {
     cart.push({
-      id: data.id,
-      title: data.title,
-      price: data.price,
-      image: data.images[0],
-      quantity: 1
-    });
+  id: data.id,
+  title: data.title,
+  price: data.price,
+  image: data.images[0],
+  ship: data.shippingInformation || "Free Delivery 🚚",
+  discountPercentage: data.discountPercentage || 0,
+  qty: 1
+});
+
     localStorage.setItem("cart", JSON.stringify(cart));
     cartBtn.textContent = "VIEW CART";
     cartBtn.classList.add("view-cart");
