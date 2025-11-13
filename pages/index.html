@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flipkart Style Page</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Show_Mart</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-
   <div class="main">
     <!-- Navbar -->
     <div class="nav">
       <div class="logo">
-      <h1>🛍️ Show_Mart</h1>
+        <h1>🛍️ Show_Mart</h1>
       </div>
 
       <div class="search">
-        <input type="text" placeholder="Search for products, brands and more">
-        <button>🔍</button>
+        <input id="searchInput" type="text" placeholder="Search for products, brands and more" />
+        <button><span class="material-symbols-outlined">search</span></button>
+        <div id="suggestions" class="suggestions"></div>
       </div>
 
       <div class="menu">
         <button class="login-btn">Login</button>
         <a href="#"><span class="material-symbols-outlined">favorite</span></a>
-        <a href="../pages/cart.html" class="cart"><span class="material-symbols-outlined">shopping_cart</span> Cart</a>
+        <a href="../pages/cart.html" class="cart">
+          <span class="material-symbols-outlined">shopping_cart</span> Cart
+        </a>
       </div>
     </div>
 
+    <!-- Product Cards -->
     <div id="cards" class="cards"></div>
   </div>
 
