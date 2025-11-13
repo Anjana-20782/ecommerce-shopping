@@ -107,6 +107,34 @@ body {
 }
 
 
+/* 🛒 Cart Counter Badge */
+.cart {
+  position: relative;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #ff3e6c;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+
 /* 🏷️ Category Bar */
 .categories {
   display: flex;

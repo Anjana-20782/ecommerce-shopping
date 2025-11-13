@@ -1,21 +1,32 @@
 let products = [];
 let categories = [];
 let activeCategory = "all";
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// 🔹 Update Cart Count
+function updateCartCount() {
+  const cartCount = document.getElementById("cartCount");
+  if (cart.length > 0) {
+    cartCount.textContent = cart.length;
+    cartCount.style.display = "flex";
+  } else {
+    cartCount.style.display = "none";
+  }
+}
 
 // 🔹 Fetch products & categories
 async function fetchData() {
   try {
-    // Fetch all products
     const productRes = await fetch("https://dummyjson.com/products");
     const productData = await productRes.json();
     products = productData.products;
 
-    // Fetch categories
     const categoryRes = await fetch("https://dummyjson.com/products/category-list");
     categories = await categoryRes.json();
 
     displayCategories();
     displayProducts(products);
+    updateCartCount();
   } catch (error) {
     console.log("Error fetching data:", error);
   }
@@ -32,7 +43,6 @@ function displayCategories() {
     `).join("")}
   `;
 
-  // Add click event to category buttons
   const catButtons = document.querySelectorAll(".cat-btn");
   catButtons.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -49,28 +59,42 @@ function displayProducts(items) {
   const cards = document.getElementById("cards");
   cards.innerHTML = items.map(p => `
     <div class="card">
-      <a href="../pages/add.html?id=${p.id}">
-        <img src="${p.thumbnail}" alt="${p.title}">
-        <h3>${p.title}</h3>
-        <p>${p.rating}⭐️</p>
-        <p class="price">Price: $${p.price}</p>
-      </a>
+      <img src="${p.thumbnail}" alt="${p.title}">
+      <h3>${p.title}</h3>
+      <p>${p.rating}⭐️</p>
+      <p class="price">Price: $${p.price}</p>
+
     </div>
   `).join("");
+
+  // Add event listener to cart buttons
+  document.querySelectorAll(".add-cart").forEach(btn => {
+    btn.addEventListener("click", () => addToCart(btn.dataset.id));
+  });
 }
 
-// 🔹 Search + Category filter (combined)
+// 🔹 Add to cart
+function addToCart(id) {
+  const item = products.find(p => p.id == id);
+  const exists = cart.find(c => c.id == id);
+  if (!exists) {
+    cart.push(item);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+  } else {
+    alert("🛒 Item already in cart!");
+  }
+}
+
+// 🔹 Filter products by category and search
 function filterProducts() {
   const query = document.getElementById("searchInput").value.toLowerCase();
 
   let filtered = products;
-
-  // Filter by category if not "all"
   if (activeCategory !== "all") {
     filtered = filtered.filter(p => p.category.toLowerCase() === activeCategory.toLowerCase());
   }
 
-  // Filter by search query
   if (query.trim() !== "") {
     filtered = filtered.filter(p => p.title.toLowerCase().includes(query));
   }
@@ -107,7 +131,6 @@ document.getElementById("suggestions").addEventListener("click", e => {
     document.getElementById("searchInput").value = e.target.textContent;
     document.getElementById("suggestions").style.display = "none";
     filterProducts();
-    
   }
 });
 
