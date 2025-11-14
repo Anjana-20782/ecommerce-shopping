@@ -59,11 +59,12 @@ function displayProducts(items) {
   const cards = document.getElementById("cards");
   cards.innerHTML = items.map(p => `
     <div class="card">
+    <a href="../pages/add.html?id=${p.id}">
       <img src="${p.thumbnail}" alt="${p.title}">
       <h3>${p.title}</h3>
       <p>${p.rating}⭐️</p>
       <p class="price">Price: $${p.price}</p>
-
+   </a>
     </div>
   `).join("");
 
